@@ -38,7 +38,6 @@ def main():
     myCipher = myDES(keytext, ivtext)
     ciphered = myCipher.enc(msg)
     deciphered = myCipher.dec(ciphered)
-
     print('ORIGINAL: \t%s' %msg)
     print('CIPHERED: \t%s' %ciphered)
     print('DECIPHERED: \t%s' %deciphered)
