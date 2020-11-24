@@ -4,13 +4,13 @@ from threading import Thread
 from colorama import Fore
 from colorama import Style
 
-#def crackzip(zfile, passwd):
-#    try:
-#        zfile.extractall(path='./unlocked', pwd=passwd)
-#        return True
-#    except:
-#        pass
-#    return False
+def crackzip(zfile, passwd):
+    try:
+        zfile.extractall(path='./unlocked', pwd=passwd)
+        return True
+    except:
+        pass
+    return False
 def main():
     tryCount = 0
     dictionary_file = 'test.txt'
@@ -23,15 +23,8 @@ def main():
         tryCount += 1
         passwd = line.strip('\n')
         print(f'** {Fore.RED}NOW DECRYPTING ....%d {Style.RESET_ALL} trying {Fore.GREEN} %s {Style.RESET_ALL}' %(tryCount, passwd))
-#        t = Thread(target=crackzip, args = (zfile, passwd.encode('utf-8')))
-#        t.start()
-        try:
-            zfile.extractall(path='./unlocked', pwd=passwd.encode('utf-8'))
-            print("!!")
-        except:
-            pass
-        else:
-            print("**SUCCESS!! password is %s" %(passwd))
+        if crackzip(zfile, passwd.encode('utf-8')):
+            print(f'** {Fore.GREEN}SUCCESS!! {Style.RESET_ALL} password is {Fore.GREEN} %s {Style.RESET_ALL}' %(passwd))
             break
     print("** FINISHED **")
 main()
