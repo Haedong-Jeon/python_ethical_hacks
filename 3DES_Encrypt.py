@@ -33,7 +33,7 @@ def make8String(msg):
 def main():
     keytext = 'samsjang'
     ivtext = '1234'
-    msg = 'python3xqiewhfpsoaihvpboiqhjepwifjpqewifjpo'
+    msg = 'python3xzz'
 
     myCipher = myDES(keytext, ivtext)
     ciphered = myCipher.enc(msg)
